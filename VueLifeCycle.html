@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{test}}</p>
+        <button v-on:click="clickAction">CHANGE</button>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                test: 'Hello World'
+            },
+            beforeCreate: function () {
+                console.log('before create');
+            },
+            created: function() {
+                console.log('created');
+            },
+            beforeMount: function() {
+                console.log('before mounted');
+                this.test = "HOHO";
+            },
+            mounted: function() {
+                console.log('mounted');
+                // this.test = "HOHO 1";
+                console.log(this.test);
+            },
+            beforeUpdate: function() {
+                console.log('before update');
+                console.log(this.test);
+            },
+            updated: function() {
+                console.log('updated');
+                console.log(this.test);
+            },
+            destroyed: function() {
+                console.log('deleted');
+                console.log(this.test);
+            },
+            methods: {
+                clickAction: function() {
+                    this.test = "Changed";
+                    this.$destroy();
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

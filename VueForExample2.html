@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul v-for="(food, index) in foods" v-bind:key="food">
+            <li>{{food}}</li>
+        </ul>
+        <hr>
+        <button v-on:click="addFood">ADD FOOD</button>
+    </div>
+    
+    <script src="./vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                foods: ['ham', 'beef', 'apple']
+            },
+            methods: {
+                addFood: function() {
+                    this.foods.push('added Food');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

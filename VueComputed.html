@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUE Computed</title>
+</head>
+<body>
+    <div id="app">
+        <h4>This is number: {{number}}</h4>
+        <hr>
+        <button v-on:click="increaseValue">
+            INCREASE, this is {{getValue}}
+        </button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                number: 0
+            },
+            computed: {
+                getValue: function() {
+                    return this.number > 5 ? ' bigger than 5' : ' less than 5';
+                }
+            },
+            watch: {
+                number: function(value) {
+                    // var self = this;
+                    // setTimeout(function() {
+                    //     self.number = -1;
+                    // }, 2000);
+
+                    console.log(value);
+                }
+            },
+            methods: {
+                increaseValue: function() {
+                    this.number++;
+                }
+            }
+        });
+
+        console.log(app);
+    </script>
+</body>
+</html>

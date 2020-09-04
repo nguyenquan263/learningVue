@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{testText}}
+        <test-component></test-component>
+        
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+
+        Vue.component('test-component', {
+            
+            data: {
+                
+                count: 0
+                
+            },
+            methods: {
+                increase: function() {
+                    this.count++;
+                }
+            },
+            // template: '<div><h1>Value now: {{count}}</h1> <br/> <button v-on:click="increase">ADD</button></div>'
+            render: function (createElement) {
+                var self = this;
+                var myParagraphVNode = createElement('p', 'Value is: ' + self.count);
+                return createElement('div', [
+                    // Yikes - duplicate VNodes!
+                    myParagraphVNode, myParagraphVNode
+                ])
+            }
+        });
+
+        var app = new Vue({
+            el: '#app',
+            data: function() {
+                return {
+                    testText: 'Hello World'
+                }
+            }
+        });
+    </script>
+</body>
+</html>

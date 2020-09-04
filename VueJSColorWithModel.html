@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .demo {
+        /* width: 100px; */
+        height: 100px;
+        /* background-color: gray; */
+        display: inline-block;
+        margin: 10px;
+    }
+</style>
+<body>
+    <div id="app">
+        <div class="demo" v-bind:style="styleColor"></div>
+        <hr>
+        Color: <input type="text" v-model="colorName">
+        <hr>
+        Width: <input type="text" v-model="width">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                colorName: 'gray',
+                width: '100px'
+            },
+            computed: {
+                styleColor: function() {
+                    return {
+                        'background-color': this.colorName,
+                        width: this.width
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

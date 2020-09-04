@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJS Demo App</title>
+</head>
+<body>
+    <div id="app">
+        You input: {{title}}
+        <br>
+        <input type="text" v-on:input="changeTitle">
+        <br>
+        {{sayHello()}}
+        <hr>
+        This is binding html attribute <a v-bind:href="googleLink">Google</a>
+        <hr>
+        Demo v-once: <h1 v-once>{{title}}</h1>
+        <hr>
+        <div v-html="htmlLink"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                title: 'Hello World',
+                googleLink: 'http://google.com',
+                htmlLink: '<h3>This is fucking HTML</h3>'
+            },
+            methods: {
+                changeTitle: function(event) {
+                    this.title = event.target.value;
+                },
+                sayHello: function() {
+                    return this.title;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

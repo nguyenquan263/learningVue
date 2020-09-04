@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue for Demo</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="food in foods">{{food}}</li>
+        </ul>
+        <hr>
+        <ul>
+            <li v-for="student in students">
+                <div v-for="(value, key, index) in student">
+                    {{key}}: {{value}} ({{index}})
+                </div>
+            </li>
+        </ul>
+
+        <hr>
+        <span v-for="n in 10">{{n}}</span>
+    </div>    
+
+    <script src="./vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                foods: ['fruit', 'beef', 'ham'],
+                students: [
+                    {id: 1, name: 'Quan Nguyen', class: 'JAVA'},
+                    {id: 2, name: 'Luan Nguyen', class: 'C#'},
+                    {id: 3, name: 'Thu Phan', class: 'IOS'}
+                ]
+            }
+        });
+    </script>
+</body>
+</html>

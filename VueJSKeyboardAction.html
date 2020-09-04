@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        Type something and press ENTER or SPACE: <input type="text" v-on:keyup.enter.space="enterKeyAction">
+        <hr>
+        Type something and press ENTER: <input type="text" v-on:keydown.enter="enterKeyAction">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            methods: {
+                enterKeyAction: function(event) {
+                    alert(event.target.value);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

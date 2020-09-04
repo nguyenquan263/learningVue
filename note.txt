@@ -1,0 +1,19 @@
+Nen nho rang moi function cua Vue deu co mot argument mac dinh la event.
+
+SU KHAC NHAU GIUA COMPUTED VA METHODS
+Computed khong co tham so, computed chi tinh toan khi cac bien phu thuoc no thay doi
+Trong khi Methods, se tinh toan lai moi khi duoc goi
+Computed co cache, trong khi Methods khong co.
+=> Computed nhanh hon Methods
+
+Watch la mot phan tu trong app Vue, cac phan tu trong Watch co cung ten voi 
+cac thanh phan trong data. moi phan tu tuong ung voi mot function, trong do 
+bao gom cac cong viec se thuc thi khi thay doi gia tri cua thanh phan data.
+
+v-if va v-show tuong doi nhu nhau, v-if tieu diet phan tu target neu la false
+v-show chi an phan tu target neu la false,
+v-show nen duoc su dung neu phan tu duoc su dung nhieu lan, 
+vi no chi hieu chinh thuoc tinh display cua thanh phan.
+
+v-show khong hoat dong voi the template
+v-show khong hoat dong voi v-else

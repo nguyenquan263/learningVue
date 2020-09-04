@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Else If Demo</title>
+</head>
+<body>
+    <div id="app">
+        <p v-if="show">Vue If Statement</p>
+        <p v-else>Vue Else If Statement</p>
+
+        <template v-if="show">
+            <p>Hello</p>
+            <p>This is template</p>
+        </template>
+        <hr>
+        <button v-on:click="show = !show">Switch</button>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                show: true
+            }
+        });
+    </script>
+</body>
+</html>
